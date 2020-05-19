@@ -13,18 +13,18 @@ function App() {
 
     function processInput(input) {
         let captureNewLines = new RegExp(/(\n)/, "gm");
-        input = input.replace(captureNewLines, (capturedText) => `<br/>`)
-        let captureHeader3 = new RegExp(/#{3} ([^#]*)/, "gm");
-        let captureHeader2 = new RegExp(/#{2} ([^#]*)/, "gm");
-        let captureHeader1 = new RegExp(/# ([^#]*)/, "gm");
-        let captureLine = new RegExp(/(^---)/, "gm");
+        let captureHeader3 = new RegExp(/^#{3} (.*)/, "gm");
+        let captureHeader2 = new RegExp(/^#{2} (.*)/, "gm");
+        let captureHeader1 = new RegExp(/^# (.*)/, "gm");
+        let captureLine = new RegExp(/(^---\n)/, "gm");
         let captureListItem = new RegExp(/^- (.*)/, "gm");
 
         input = input.replace(captureHeader3, (capturedText, group1) => `<h3>${group1}</h3>`);
         input = input.replace(captureHeader2, (capturedText, group1) => `<h2>${group1}</h2>`);
         input = input.replace(captureHeader1, (capturedText, group1) => `<h1>${group1}</h1>`);
-        input = input.replace(captureLine, (capturedText, group1) => `<hr>`);
-        input = input.replace(captureListItem, (capturedText, group1, group2) => `<li>${group1}</li>`);
+        input = input.replace(captureLine, () => `<hr>`);
+        input = input.replace(captureListItem, (capturedText, group1) => `<li>${group1}</li>`);
+        input = input.replace(captureNewLines, () => `<br/>`)
 
         console.log(input);
         return <div dangerouslySetInnerHTML={{ __html: input }} />;
