@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
     let [input, setInput] = useState('');
-    let lines = Array(200).fill(1);
+    let lines = Array(input.split('\n').length).fill(1);
     let lineCount = lines.map((line, index) => `#${index + 1}\n`);
     lineCount = lineCount.join('');
     console.log('lineCXountr = ' ,lineCount)
@@ -32,11 +32,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <textarea key={input.length} name="" id="" cols = '5' rows={200} className={'line-number'}>
+          <textarea key={input.length} name="" id="" cols = '5' rows={input.split('\n').length} className={'line-number'}>
             {lineNumber}
           </textarea>
           <div className={'input-div'}>
-            <textarea name="" id="" className={'input-area'} rows={200} onChange={async (text) => {
+            <textarea name="" id="" className={'input-area'} rows={Math.max(30 , input.split('\n').length)} onChange={async (text) => {
                     setInput(`${text.target.value}`);
                 }}>
                 {input}

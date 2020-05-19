@@ -71,6 +71,7 @@ textarea{
   overflow: hidden;
   padding-right: 4px;
   border-right: white 4px solid;
+  resize: none;
 }
 
 .result {
