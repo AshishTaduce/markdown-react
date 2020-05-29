@@ -6,10 +6,8 @@ function App() {
     let lines = Array(input.split('\n').length).fill(1);
     let lineCount = lines.map((line, index) => `#${index + 1}\n`);
     lineCount = lineCount.join('');
-    console.log('lineCXountr = ' ,lineCount)
     let lineNumber = lineCount;
-    console.log(lineNumber);
-
+    // console.log(lineNumber);
 
     function processInput(input) {
         let captureNewLines = new RegExp(/(\n)/, "gm");
