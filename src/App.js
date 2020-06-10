@@ -10,7 +10,7 @@ function App() {
     // console.log(lineNumber);
 
     function processInput(input) {
-        let captureNewLines = new RegExp(/(\n)/, "gm");
+        let captureNewLines = new RegExp(/(^\n)/, "gm");
         let captureHeader3 = new RegExp(/^#{3} (.*)/, "gm");
         let captureHeader2 = new RegExp(/^#{2} (.*)/, "gm");
         let captureHeader1 = new RegExp(/^# (.*)/, "gm");
