@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import './App.scss';
 
 function App() {
     let [input, setInput] = useState('');
@@ -23,22 +23,37 @@ function App() {
         input = input.replace(captureLine, () => `<hr>`);
         input = input.replace(captureListItem, (capturedText, group1) => `<li>${group1}</li>`);
         input = input.replace(captureNewLines, () => `<br/>`)
-
-        console.log(input);
         return <div dangerouslySetInnerHTML={{ __html: input }} />;
+    }
+    function preetifyInput(input) {
+        input = input.split(`\n`);
+        input = input.map(element => {
+            if(element.substring(0,2) === ("# ")) return <div className={"header preety-div"}>{element}</div>
+            if(element.substring(0,4) ===("---")) return <div className={"horizontal-line preety-div"}>{element}</div>
+            if(element === "") return <p className={"preety-div"}> </p>
+            if(element.substring(0,2) === ("* ")) return <div className={"list-item preety-div"}><span style={{color: "#3ff1f1"}}>*</span> {element.substring(1)}</div>
+            return <div className={"preety-div"}>{element}</div>
+        });
+        // console.log("After: ",input);
+        return input;
     }
   return (
     <div className="App">
-      <header className="App-header">
-          <textarea key={input.length} name="" id="" cols = '5' rows={input.split('\n').length} className={'line-number'}>
-            {lineNumber}
-          </textarea>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+        </style>
+        <header className="App-header">
           <div className={'input-div'}>
-            <textarea name="" id="" className={'input-area'} rows={Math.max(30 , input.split('\n').length)} onChange={async (text) => {
-                    setInput(`${text.target.value}`);
-                }}>
+              <div>
+                  <div className={'preety-text'}>{preetifyInput(input).map(divs => divs)}</div>
+              </div>
+              <div className={"huh"}>
+                  <textarea name="" id="" className={'input-area'} rows={Math.max(30 , input.split('\n').length)} onChange={async (text) => {
+                      setInput(`${text.target.value}`);
+                  }} wrap={"hard"}>
                 {input}
             </textarea>
+              </div>
           </div>
           <div className={'result'}>
                 {processInput(input)}

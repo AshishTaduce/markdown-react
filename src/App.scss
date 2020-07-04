@@ -3,19 +3,8 @@
   /*background: #4b6584;*/
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -30,48 +19,60 @@
 }
 
 .input-area{
-  flex: 1;
+
+  z-index: 10;
+  caret-color: #fdfdfd;
   display: flex;
   flex-direction: column;
-  background: #2c2f43;
+  font-family: 'Fira Sans', sans-serif;
+  background: transparent;
   justify-content: flex-start;
   align-items: flex-start;
-  color: white;
+  color: red;
+  line-height: 1.5rem;
+  width: 100%;
   height: 100%;
   font-size: 16px;
+  padding: 0.5rem;
+  margin: 0;
 }
 
-textarea{
-  resize: horizontal;
+.huh {
+  padding: 0;
+  margin: 0;
+  z-index: 5;
+  width: 100%;
   height: 100%;
-  border: 0;
 }
 
 .input-div{
+  padding: 0;
+  margin: 0;
   flex: 15;
   min-height: 100vw;
   height: 100%;
   display: flex;
-  background: #2c2f43;
+  background: transparent;
   justify-content: flex-start;
   align-items: flex-start;
-  color: white;
 }
 
 .line-number{
   font-style: italic;
+  font-family: 'Fira Sans', sans-serif;
   flex: 1;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   text-align: right;
   background: transparent;
   justify-content: flex-start;
   align-items: stretch;
-  color: white;
+  color: #2c2f43;
   font-size: 16px;
   overflow: hidden;
   padding-right: 4px;
+  min-width: 3rem;
   /*border-right: white 4px solid;*/
   resize: none;
 }
@@ -88,4 +89,33 @@ textarea{
   align-items: stretch;
   color: #2c2f43;
   word-wrap: normal;
+}
+
+.preety-text {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: calc(51% - 19px);
+  position: fixed;
+  background-color: #212d53;
+  color: #fdfdfd;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  padding: 10px 0 10px 10px;
+
+  .preety-div{
+    margin-bottom: 5px;
+  }
+
+  .preety-div:first-child{
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+}
+
+.header {
+  color: #e763ff;
 }
