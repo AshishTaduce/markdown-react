@@ -14,10 +14,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .input-area{
 
   z-index: 10;
@@ -28,7 +24,7 @@
   background: transparent;
   justify-content: flex-start;
   align-items: flex-start;
-  color: red;
+  color: transparent;
   line-height: 1.5rem;
   width: 100%;
   height: 100%;
@@ -78,6 +74,7 @@
 }
 
 .result {
+  padding-top: 10px;
   text-align: left;
   padding-left: 28px;
   flex: 15;
@@ -89,11 +86,33 @@
   align-items: stretch;
   color: #2c2f43;
   word-wrap: normal;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  .image-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    object-position: center;
+    width: 128px;
+    height: 128px;
+  }
+}
+
+.code-block {
+  display: flex;
+  width: 45vw;
+  height: 24px;
+  padding: 12px;
+  color: #ffd336;
+  background-color: #791717;
 }
 
 .preety-text {
+  word-wrap: normal;
   z-index: 2;
   display: flex;
+  text-align: left;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -114,8 +133,21 @@
     margin-top: 3px;
     margin-bottom: 5px;
   }
+
+  .empty-div {
+    color: transparent;
+  }
+
+  .image {
+    color: #f92672;
+  }
+
+  .header {
+    color: #ae81ff;
+  }
+
+  .code{
+    color: #fd971f;
+  }
 }
 
-.header {
-  color: #e763ff;
-}
